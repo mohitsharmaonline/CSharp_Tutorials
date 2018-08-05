@@ -26,23 +26,77 @@ namespace CSharp7_5_Liked_Features
 
 
 
-            // Second feature: Pattern Matching
-            string ageFromConsole = "21";
-            int ageFromDatabase = 84;
+            //// Second feature: Pattern Matching
+            //string ageFromConsole = "21";
+            //int ageFromDatabase = 84;
 
-            object ageValue = ageFromDatabase;
+            //object ageValue = ageFromDatabase;
 
-            // pattern match here 'ageValue is int age' : if the variable contains an integer then store integer value in a new variable named age
-            // 'ageValue is string ageText && int.TryParse(ageText, out age)' : otherwise if it is string, convert the value temporarily stored in variable ageText
-            // into an integer.
-            if (ageValue is int age || (ageValue is string ageText && int.TryParse(ageText, out age)))
+            //// pattern match here 'ageValue is int age' : if the variable contains an integer then store integer value in a new variable named age
+            //// 'ageValue is string ageText && int.TryParse(ageText, out age)' : otherwise if it is string, convert the value temporarily stored in variable ageText
+            //// into an integer.
+            //if (ageValue is int age || (ageValue is string ageText && int.TryParse(ageText, out age)))
+            //{
+            //    Console.WriteLine($"Your age is { age }.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("We don't know your age.");
+            //}
+
+
+            // Feature 3: Powerful switch statements
+            Employee emp1 = new Employee { FirstName = "Joe", LastName = "Smith", IsManager = false, YearsWorked = 2 };
+            Employee emp2 = new Employee { FirstName = "Sandra", LastName = "Jones", IsManager = true, YearsWorked = 28 };
+            Customer cust1 = new Customer { FirstName = "Tim", LastName = "Corey", TotalDollarsSpent = 2342.15M };
+            Customer cust2 = new Customer { FirstName = "Delana", LastName = "Greenback", TotalDollarsSpent = 558M };
+            List<object> people = new List<object> { emp1, emp2, cust1, cust2 };
+
+            foreach (var p in people)
             {
-                Console.WriteLine($"Your age is { age }.");
+                switch(p)
+                {
+                    case Employee e when (e.IsManager == false):
+                        Console.WriteLine($"{e.FirstName} is a good employee.");
+                        break;
+                    case Employee e when (e.IsManager):
+                        Console.WriteLine($"{e.FirstName} runs the company.");
+                        break;
+                    case Customer c when (c.TotalDollarsSpent > 1000):
+                        Console.WriteLine($"{c.FirstName} is a loyal customer.");
+                        break;
+                    case Customer c:
+                        Console.WriteLine($"{c.FirstName} needs to spend more money.");
+                        break;
+                    default:
+                        break;
+                }
             }
-            else
-            {
-                Console.WriteLine("We don't know your age.");
-            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         }

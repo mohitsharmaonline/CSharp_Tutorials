@@ -30,7 +30,7 @@ namespace CSharp7_5_Liked_Features
             string ageFromConsole = "21";
             int ageFromDatabase = 84;
 
-            object ageValue = ageFromConsole;
+            object ageValue = ageFromDatabase;
 
             // pattern match here 'ageValue is int age' : if the variable contains an integer then store integer value in a new variable named age
             // 'ageValue is string ageText && int.TryParse(ageText, out age)' : otherwise if it is string, convert the value temporarily stored in variable ageText

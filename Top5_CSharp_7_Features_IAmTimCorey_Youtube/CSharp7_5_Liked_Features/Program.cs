@@ -10,6 +10,16 @@ namespace CSharp7_5_Liked_Features
     {
         static void Main(string[] args)
         {
+            // first feature: Inline out variables.
+
+            Console.Write("What is your age: ");
+            string ageText = Console.ReadLine();
+
+            // Old way of doing things
+            int age = 0;
+            bool IsValidAge = int.TryParse(ageText, out age);
+
+            Console.WriteLine($"Your age is { age }.");
         }
     }
 }

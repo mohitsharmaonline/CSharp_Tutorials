@@ -15,9 +15,12 @@ namespace CSharp7_5_Liked_Features
             Console.Write("What is your age: ");
             string ageText = Console.ReadLine();
 
-            // Old way of doing things
-            int age = 0;
-            bool IsValidAge = int.TryParse(ageText, out age);
+            //// Old way of doing things
+            //int age = 0;
+            //bool IsValidAge = int.TryParse(ageText, out age);
+
+            // new ways of doing things.
+            bool IsValidAge = int.TryParse(ageText, out int age);
 
             Console.WriteLine($"Your age is { age }.");
         }

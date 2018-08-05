@@ -73,13 +73,28 @@ namespace CSharp7_5_Liked_Features
             //    }
             //}
 
-            // Feature No. 4 : Throw in expression.
-            Employee emp1 = new Employee { FirstName = "Joe", LastName = "Smith", IsManager = false, YearsWorked = 2 };
-            Employee emp2 = new Employee { FirstName = "Sandra", LastName = "Jones", IsManager = true, YearsWorked = 28 };
-            List<Employee> people = new List<Employee> { emp1, emp2 };
+            //// Feature No. 4 : Throw in expression.
+            //Employee emp1 = new Employee { FirstName = "Joe", LastName = "Smith", IsManager = false, YearsWorked = 2 };
+            //Employee emp2 = new Employee { FirstName = "Sandra", LastName = "Jones", IsManager = true, YearsWorked = 28 };
+            //List<Employee> people = new List<Employee> { emp1, emp2 };
 
-            Employee ceo = people.Where(emp => emp.IsManager).FirstOrDefault() ?? throw new Exception("Tehre was a problem finding a manager.");
-            Console.WriteLine($"The ceo is {ceo.FirstName}");
+            //Employee ceo = people.Where(emp => emp.IsManager).FirstOrDefault() ?? throw new Exception("Tehre was a problem finding a manager.");
+            //Console.WriteLine($"The ceo is {ceo.FirstName}");
+
+            // Feature No. 5: Tuples
+            var name = SplitName("Mohit Sharma");
+            Console.WriteLine($"The first name is {name.firstName} and the last name is {name.lastName}.");
+
+            Console.ReadLine();
+        }
+
+        // you can use (string, string) too, but giving realistic names is always a better idea.
+        // I need to install .net framework development tools 4.7 to be able to use these tuples without
+        // importing any nuget packages.
+        private static (string firstName, string lastName) SplitName(string fullName)
+        {
+            string[] vals = fullName.Split(' ');
+            return (vals[0], vals[1]);
         }
     }
 }
